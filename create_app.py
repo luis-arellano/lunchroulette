@@ -7,4 +7,5 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+mysqlconnector://root:rockclimber
 
 db = SQLAlchemy(app)
 
+# How to connect to the database from terminal.
 # mysql -h database-1.ciiowaujelgi.us-west-2.rds.amazonaws.com -P 3306 -u root -p
