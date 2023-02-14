@@ -1,11 +1,12 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
+import os
 
 app = Flask(__name__, static_url_path='', static_folder='frontend/build')
-# app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////tmp/test.db'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+mysqlconnector://root:rockclimber1!@database-1.ciiowaujelgi.us-west-2.rds.amazonaws.com:3306/lunchroulette'
+db_uri = os.environ.get('DATABASE_URI')
+app.config['SQLALCHEMY_DATABASE_URI'] = db_uri
 
 db = SQLAlchemy(app)
 
 # How to connect to the database from terminal.
-# mysql -h database-1.ciiowaujelgi.us-west-2.rds.amazonaws.com -P 3306 -u root -p
+# mysql -h <host endpoint. -P 3306 -u root -p
