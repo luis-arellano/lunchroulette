@@ -8,24 +8,6 @@ import json
 # Initialize the database
 db.init_app(app)
 
-# db = SQLAlchemy()
-
-
-# def create_app():
-#     from models import User, Match, Review
-
-#     uri = 'mysql+mysqlconnector://root:rockclimber1!@database-1.ciiowaujelgi.us-west-2.rds.amazonaws.com:3306/lunchroulette'
-#     app = Flask('lunchroulette')
-#     app.config['SQLALCHEMY_DATABASE_URI'] = uri
-#     SQLALCHEMY_TRACK_MODIFICATIONS = True
-
-#     db.init_app(app)  # init of db is deferred
-#     db.create_all()
-
-#     return app
-
-
-# app = create_app()
 CORS(app)  # comment this on deployment
 
 
@@ -42,7 +24,7 @@ def test():
 @app.route("/users", methods=["POST"])
 def create_user():
     data = request.get_json()
-    data_dict = json.loads(data)
+    data_dict = data
 
     user = User(name=data_dict["name"],
                 email=data_dict["email"],
